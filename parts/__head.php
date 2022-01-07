@@ -9,7 +9,7 @@
         <title><?= !empty($title) ? "$title - 禾酒林" : '禾酒林 - 後臺管理首頁' ?></title>
         <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/" />
         <!-- Bootstrap core CSS -->
-        <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
         <style>
             ::selection {
@@ -103,8 +103,12 @@
             .card h5 {
                 font-weight: 600;
             }
+            small {
+                font-size: .5rem;
+                color: #666
+            }
         </style>
         <!-- Custom styles for this template -->
-        <link href="parts/dashboard.css" rel="stylesheet" />
+        <link href="../parts/dashboard.css" rel="stylesheet" />
     </head>
 </html>

@@ -18,6 +18,7 @@ try{
     echo '**** *****'. $ex->getMessage();
 }
 
+// 為避免錯誤，這裡先給 $title 和 $pageName 一個空字串
 $title = "";
 $pageName = "";
 
