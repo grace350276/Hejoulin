@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '../parts/__connect_db.php';
+require __DIR__ . '..\parts\__connect_db.php';
 
 
 $output = [
@@ -9,8 +9,6 @@ $output = [
 ];
 $uAccount = $_POST['account'] ?? '';
 $uPass = $_POST['password'] ?? '';
-
-
 
 //TODO:檢查欄位資料
 //if (empty($name)) {

@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '../parts/__connect_db.php';
+require __DIR__ . '..\parts\__connect_db.php';
 
 
 $title = '管理者列表';
@@ -20,13 +20,11 @@ $sql = sprintf("SELECT * FROM `admin` LIMIT %s, %s", ($page-1)*$perPage, $perPag
 
 $rows = $pdo->query($sql)->fetchAll();
 ?>
-<?php include __DIR__ . '/parts/__head.html'?>
-<?php include __DIR__ . '/parts/__navbar.html'?>
-<?php include __DIR__ . '/parts/__sidebar.html'?>
+<?php include __DIR__ . '..\parts\__head.html'?>
+<?php include __DIR__ . '..\parts\__navbar.html'?>
+<?php include __DIR__ . '..\parts\__sidebar.html'?>
+<?php include __DIR__ . '..\parts\__main_start.html'?>
 
-<?php include __DIR__ . '/parts/__main_start.html'?>
-<!-- 主要的內容放在 __main_start 與 __main_end 之間 -->
-<!-- table -->
     <div class="d-flex justify-content-between mt-5">
         <button type="button" class="btn btn-secondary btn-sm">刪除選擇項目</button>
         <nav aria-label="Page navigation example">
@@ -80,21 +78,15 @@ $rows = $pdo->query($sql)->fetchAll();
             </tbody>
         </table>
     </div>
-    <!--
-    <td>
-        // <a href="#"><i class="fas fa-pen"></i></a>
-        //
-    </td>
-    -->
-<?php include __DIR__ . '/parts/__main_end.html'?>
 
-<!-- 如果要 modal 的話留下面的結構 -->
-<?php include __DIR__ . '/parts/__modal.html'?>
+<?php include __DIR__ . '..\parts\__main_end.html'?>
 
-<?php include __DIR__ . '/parts/__script.html'?>
-<!-- 如果要 modal 的話留下面的 script -->
+<?php include __DIR__ . '..\parts\__modal.html'?>
+
+<?php include __DIR__ . '..\parts\__script.html'?>
+
 <script>
      const modal = new bootstrap.Modal(document.querySelector('#exampleModal'));
     //  modal.show() 讓 modal 跳出
 </script>
-<?php include __DIR__ . '/parts/__foot.html'?>
+<?php include __DIR__ . '..\parts\__foot.html'?>

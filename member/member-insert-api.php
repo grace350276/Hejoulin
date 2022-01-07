@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '../parts/__connect_db.php';
+require __DIR__ . '..\parts\__connect_db.php';
 
 
 $output = [
@@ -28,12 +28,6 @@ $level = $_POST['level'] ?? '';
 //    exit;
 //}
 
-//if (empty($mobile) or !preg_match("/^09\d{2}-?\d{3}-?\d{3}$/", $mobile)) {
-//    $output['code'] = 405;
-//    $output['error'] = '請輸入正確的手機號碼';
-//    echo json_encode($output, JSON_UNESCAPED_UNICODE);
-//    exit;
-//}
 
 
 $sql = "INSERT INTO `member`(

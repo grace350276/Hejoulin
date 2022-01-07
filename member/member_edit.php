@@ -1,9 +1,6 @@
 <?php
-require __DIR__ . '../parts/__connect_db.php';
+require __DIR__ . '..\parts\__connect_db.php';
 
-//if (! isset($_SESSION['admin'])){
-//    header('Location:index.php');
-//    exit;
 
 $title = '修改會員資料';
 
@@ -18,10 +15,10 @@ if(empty($row)){
 }
 
 ?>
-<?php include __DIR__ . '/parts/__head.html'?>
-<?php include __DIR__ . '/parts/__navbar.html'?>
-<?php include __DIR__ . '/parts/__sidebar.html'?>
-<?php include __DIR__ . '/parts/__main_start.html'?>
+<?php include __DIR__ . '..\parts\__head.html'?>
+<?php include __DIR__ . '..\parts\__navbar.html'?>
+<?php include __DIR__ . '..\parts\__sidebar.html'?>
+<?php include __DIR__ . '..\parts\__main_start.html'?>
 <!-- 主要的內容放在 __main_start 與 __main_end 之間 -->
 
     <div class="container">
@@ -89,10 +86,7 @@ if(empty($row)){
         </div>
 
     </div>
-    <!--toggle開關的意思-->
-    <!--<button style="display: none" id="btn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">-->
-    <!--    Launch demo modal-->
-    <!--</button>-->
+
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -111,10 +105,10 @@ if(empty($row)){
     </div>
 
 <!-- edit -->
-<?php include __DIR__ . '/parts/__main_end.html'?>
+<?php include __DIR__ . '..\parts\__main_end.html'?>
 <!-- 如果要 modal 的話留下面的結構 -->
-<?php include __DIR__ . '/parts/__modal.html'?>
-<?php include __DIR__ . '/parts/__script.html'?>
+<?php include __DIR__ . '..\parts\__modal.html'?>
+<?php include __DIR__ . '..\parts\__script.html'?>
 <!-- 如果要 modal 的話留下面的 script -->
 <script>
 
@@ -176,4 +170,4 @@ if(empty($row)){
         // //  modal.show() 讓 modal 跳出
 </script>
 
-<?php include __DIR__ . '/parts/__foot.html'?>
+<?php include __DIR__ . '..\parts\__foot.html'?>

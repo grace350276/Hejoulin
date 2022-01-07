@@ -1,7 +1,7 @@
 <?php
-require __DIR__ . '../parts/__connect_db.php';
+require __DIR__ . '..\parts\__connect_db.php';
 
-//告訴前端的訊息
+
 $output = [
     'success' => false,
     'code' => 0,
@@ -15,7 +15,7 @@ if(empty($userID)){
     echo json_encode($output, JSON_UNESCAPED_UNICODE); exit;
 }
 
-//$mID = $_POST['member_id'] ?? '';
+
 $name = $_POST['name'] ?? '';
 $bir = $_POST['birthday'] ?? '';
 $mobile = $_POST['mobile'] ?? '';
@@ -35,7 +35,6 @@ $sql = "UPDATE `member` SET
 $stmt = $pdo->prepare($sql);
 
 $stmt->execute([
-//    $mID,
     $name,
     $bir,
     $mobile,
