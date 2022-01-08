@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '..\parts\__connect_db.php';
+require __DIR__ . '\..\parts\__connect_db.php';
 
 $title = '使用者列表';
 $pageName = 'userList';
@@ -17,10 +17,10 @@ $sql = sprintf("SELECT * FROM `user` LIMIT %s, %s", ($page - 1) * $perPage, $per
 
 $rows = $pdo->query($sql)->fetchAll();
 ?>
-<?php include __DIR__ . '..\parts\__head.html' ?>
-<?php include __DIR__ . '..\parts\__navbar.html' ?>
-<?php include __DIR__ . '..\parts\__sidebar.html' ?>
-<?php include __DIR__ . '..\parts\__main_start.html' ?>
+<?php include __DIR__ . '\..\parts\__head.php' ?>
+<?php include __DIR__ . '\..\parts\__navbar.html' ?>
+<?php include __DIR__ . '\..\parts\__sidebar.html' ?>
+<?php include __DIR__ . '\..\parts\__main_start.html' ?>
 
     <div class="d-flex justify-content-between mt-5">
         <div class="btnbar">
@@ -108,9 +108,9 @@ $rows = $pdo->query($sql)->fetchAll();
         </table>
     </div>
 
-<?php include __DIR__ . '..\parts\__main_end.html' ?>
-<?php include __DIR__ . '..\parts\__modal.html' ?>
-<?php include __DIR__ . '..\parts\__script.html' ?>
+<?php include __DIR__ . '\..\parts\__main_end.html' ?>
+<?php include __DIR__ . '\..\parts\__modal.html' ?>
+<?php include __DIR__ . '\..\parts\__script.html' ?>
     <!-- 如果要 modal 的話留下面的 script -->
     <script>
         function delete_it(user_id) {
@@ -155,4 +155,4 @@ $rows = $pdo->query($sql)->fetchAll();
         })
 
     </script>
-<?php include __DIR__ . '..\parts\__foot.html' ?>
+<?php include __DIR__ . '\..\parts\__foot.html' ?>

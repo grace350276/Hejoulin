@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '..\parts\__connect_db.php';
+require __DIR__ . '\..\parts\__connect_db.php';
 
 
 $title = '管理者列表';
@@ -20,21 +20,27 @@ $sql = sprintf("SELECT * FROM `admin` LIMIT %s, %s", ($page-1)*$perPage, $perPag
 
 $rows = $pdo->query($sql)->fetchAll();
 ?>
-<?php include __DIR__ . '..\parts\__head.html'?>
-<?php include __DIR__ . '..\parts\__navbar.html'?>
-<?php include __DIR__ . '..\parts\__sidebar.html'?>
-<?php include __DIR__ . '..\parts\__main_start.html'?>
+<?php include __DIR__ . '\..\parts\__head.php'?>
+<?php include __DIR__ . '\..\parts\__navbar.html'?>
+<?php include __DIR__ . '\..\parts\__sidebar.html'?>
+<?php include __DIR__ . '\..\parts\__main_start.html'?>
 
     <div class="d-flex justify-content-between mt-5">
         <button type="button" class="btn btn-secondary btn-sm">刪除選擇項目</button>
         <nav aria-label="Page navigation example">
             <ul class="pagination">
                 <li class="page-item">
-                    <a class="page-link" href="#"><i class="fas fa-angle-double-left"></i></a>
+                    <a class="page-link" href="?page=1">
+                        <i class="fas fa-angle-double-left"></i>
+                    </a>
                 </li>
-                <li class="page-item">
-                    <a class="page-link" href="#"><i class="fas fa-angle-left"></i></a>
+
+                <li class="page-item <?= 1 == $page ? 'disabled' : '' ?>">
+                    <a class="page-link" href="?page=<?= $page - 1 ?>">
+                        <i class="fas fa-angle-left"></i>
+                    </a>
                 </li>
+
                 <?php for ($i = $page - 2; $i <= $page + 2; $i++)
                     if ($i >= 1 && $i <= $totalPages): ?>
                         <li class="page-item <?= $i == $page ? 'active' : '' ?>">
@@ -43,11 +49,17 @@ $rows = $pdo->query($sql)->fetchAll();
                             </a>
                         </li>
                     <?php endif; ?>
-                <li class="page-item">
-                    <a class="page-link" href="#"><i class="fas fa-angle-right"></i></a>
+
+                <li class="page-item <?= $totalPages == $page ? 'disabled' : '' ?>">
+                    <a class="page-link" href="?page=<?= $page + 1 ?>">
+                        <i class="fas fa-angle-right"></i>
+                    </a>
                 </li>
+
                 <li class="page-item">
-                    <a class="page-link" href="#"><i class="fas fa-angle-double-right"></i></a>
+                    <a class="page-link" href="?page=<?= $totalPages ?>">
+                        <i class="fas fa-angle-double-right"></i>
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -79,14 +91,14 @@ $rows = $pdo->query($sql)->fetchAll();
         </table>
     </div>
 
-<?php include __DIR__ . '..\parts\__main_end.html'?>
+<?php include __DIR__ . '\..\parts\__main_end.html'?>
 
-<?php include __DIR__ . '..\parts\__modal.html'?>
+<?php include __DIR__ . '\..\parts\__modal.html'?>
 
-<?php include __DIR__ . '..\parts\__script.html'?>
+<?php include __DIR__ . '\..\parts\__script.html'?>
 
 <script>
      const modal = new bootstrap.Modal(document.querySelector('#exampleModal'));
     //  modal.show() 讓 modal 跳出
 </script>
-<?php include __DIR__ . '..\parts\__foot.html'?>
+<?php include __DIR__ . '\..\parts\__foot.html'?>

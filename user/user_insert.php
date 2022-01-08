@@ -1,15 +1,15 @@
 <?php
-require __DIR__ . '..\parts\__connect_db.php';
+require __DIR__ . '\..\parts\__connect_db.php';
 
 
 $title = '新增使用者資料';
 $pageName = 'user_insert';
 
 ?>
-<?php include __DIR__ . '..\parts\__head.html' ?>
-<?php include __DIR__ . '..\parts\__navbar.html' ?>
-<?php include __DIR__ . '..\parts\__sidebar.html' ?>
-<?php include __DIR__ . '..\parts\__main_start.html' ?>
+<?php include __DIR__ . '\..\parts\__head.php' ?>
+<?php include __DIR__ . '\..\parts\__navbar.html' ?>
+<?php include __DIR__ . '\..\parts\__sidebar.html' ?>
+<?php include __DIR__ . '\..\parts\__main_start.html' ?>
 
     <div class="container">
         <div class="row mt-5">
@@ -56,9 +56,9 @@ $pageName = 'user_insert';
         </div>
     </div>
 
-<?php include __DIR__ . '..\parts\__main_end.html' ?>
-<?php include __DIR__ . '..\parts\__modal.html' ?>
-<?php include __DIR__ . '..\parts\__script.html' ?>
+<?php include __DIR__ . '\..\parts\__main_end.html' ?>
+<?php include __DIR__ . '\..\parts\__modal.html' ?>
+<?php include __DIR__ . '\..\parts\__script.html' ?>
 
     <script>
         const uAccount = document.querySelector('#account');
@@ -111,4 +111,4 @@ $pageName = 'user_insert';
         // //  modal.show() 讓 modal 跳出
     </script>
 
-<?php include __DIR__ . '..\parts\__foot.html' ?>
+<?php include __DIR__ . '\..\parts\__foot.html' ?>
