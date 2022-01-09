@@ -1,4 +1,10 @@
 <?php require __DIR__. '\..\parts\__connect_db.php';
+
+require __DIR__ . '\..\vendor\autoload.php';
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 $title = "合作餐廳列表";
 $pageName = "restaurant_list";
 
@@ -73,6 +79,54 @@ $all_menu_pic = $pdo->query($sql_menu_pic)->fetchAll();
 $sql_sp_menu = "SELECT * FROM special_menu";
 $all_sp_menu = $pdo->query($sql_sp_menu)->fetchAll();
 
+if(isset($_POST['export'])) {
+    header('Content-Type: application/x-www-form-urlencoded');
+    header('Content-Transfer-Encoding: Binary');    
+    header('Content-disposition: attachment; filename="' . date('Y-m-d') . '_restaurant_list.xlsx"');
+    $file = new Spreadsheet();
+    $sheet = $file->getActiveSheet();
+    $sheet->setCellValue('A1', '編號');
+    $sheet->setCellValue('B1', '餐廳類型');
+    $sheet->setCellValue('C1', '餐廳地區');
+    $sheet->setCellValue('D1', '餐廳名稱');
+    $sheet->setCellValue('E1', '餐廳介紹');
+    $sheet->setCellValue('F1', '餐廳地址');
+    $sheet->setCellValue('G1', '餐廳電話');
+    $sheet->setCellValue('H1', '餐廳官網');
+    $sheet->setCellValue('I1', '餐廳FB');
+    $sheet->setCellValue('J1', '餐廳IG');
+    $sheet->setCellValue('K1', '訂位網址');
+    $sheet->setCellValue('L1', '建立時間');
+    $sheet->setCellValue('M1', '最後修改時間');
+
+    $count = 2;
+
+    foreach($all as $r) {
+        $sheet->setCellValue('A' . $count, $r['res_id']);
+        $sheet->setCellValue('B' . $count, $r['res_type']);
+        $sheet->setCellValue('C' . $count, $r['res_area']);
+        $sheet->setCellValue('D' . $count, $r['res_name']);
+        $sheet->setCellValue('E' . $count, $r['res_intro']);
+        $sheet->setCellValue('F' . $count, $r['res_address']);
+        $sheet->setCellValue('G' . $count, $r['res_t_number']);
+        $sheet->setCellValue('H' . $count, $r['web_link']);
+        $sheet->setCellValue('I' . $count, $r['fb_link']);
+        $sheet->setCellValue('J' . $count, $r['ig_link']);
+        $sheet->setCellValue('K' . $count, $r['booking_link']);
+        $sheet->setCellValue('L' . $count, $r['res_create_date']);
+        $sheet->setCellValue('M' . $count, $r['res_update_date']);
+
+        $count = $count + 1;
+    }
+
+    $writer = new Xlsx($file);
+    $writer->save("php://output");
+
+    exit;
+
+}
+
+
 ?>
 <?php include __DIR__ . '\..\parts\__head.php'?>
 <style>
@@ -95,9 +149,12 @@ $all_sp_menu = $pdo->query($sql_sp_menu)->fetchAll();
 <!-- 主要的內容放在 __main_start 與 __main_end 之間 -->
 <!-- table -->
 <div class="d-flex justify-content-between mt-5">
-    <div>
+    <div class="d-flex gap-1">
     <button type="button" class="btn btn-secondary btn-sm" onclick="deleteMany()">刪除選擇項目</button>
     <button type="button" class="btn btn-secondary btn-sm" onclick="location.href='restaurant_add.php'">新增合作餐廳</button>
+    <form method="post">
+    <input type="submit" class="btn btn-secondary btn-sm" name="export" value="輸出所有資料"></input>
+    </form>
     </div>
     <nav aria-label="Page navigation example">
         <ul class="pagination">
