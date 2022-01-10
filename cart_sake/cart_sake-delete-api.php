@@ -1,5 +1,9 @@
 <?php require __DIR__ . '\..\parts\__connect_db.php' ?>
 <?php
+if (! $_SESSION['admin']) {
+    header("Location: " . "../login/login.php");
+    exit;
+}
 if ($_GET['cart_sake_id']) {
     $cart_sake_id = $_GET['cart_sake_id'];
     $sql = "DELETE FROM `cart_sake` WHERE cart_sake_id IN (?);

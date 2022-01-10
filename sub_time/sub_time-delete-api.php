@@ -1,5 +1,9 @@
 <?php require __DIR__ . '\..\parts\__connect_db.php' ?>
 <?php
+if (! $_SESSION['admin']) {
+    header("Location: " . "../login/login.php");
+    exit;
+}
 echo $_GET['subtime_id'];
 if (isset($_GET['subtime_id'])) {
     $subtime_id = $_GET['subtime_id'];

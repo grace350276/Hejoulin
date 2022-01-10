@@ -4,13 +4,13 @@ $title = '新增資料';
 $pageName = 'add';
 
 //如果未登入管理員帳號，會直接跳轉至別的頁面
-// if(! isset($_SESSION['admin'])){
-//     header("Location: cart_sake.php");
-//     exit;
-// }
+if (!$_SESSION['admin']) {
+    header("Location: " . "../login/login.php");
+    exit;
+}
 ?>
 <?php include __DIR__ . '\..\parts\__head.php' ?>
-<?php include __DIR__ . '\..\parts\__navbar.html' ?>
+<?php include __DIR__ . '\..\parts\__navbar.php' ?>
 <?php include __DIR__ . '\..\parts\__sidebar.html' ?>
 <?php include __DIR__ . '\..\parts\__main_start.html' ?>
 <div class="container">

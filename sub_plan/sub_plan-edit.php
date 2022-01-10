@@ -4,10 +4,10 @@ $title = 'Edit Data';
 $pageName = 'edit';
 
 //如果未登入管理員帳號，會直接跳轉至別的頁面
-// if(! isset($_SESSION['admin'])){
-//     header("Location: index_count.php");
-//     exit;
-// }
+if (! $_SESSION['admin']) {
+    header("Location: " . "../login/login.php");
+    exit;
+}
 
 //確定有get到資料
 if (!isset($_GET['sub_id'])) {
@@ -26,7 +26,7 @@ if (empty($row)) {
 
 ?>
 <?php include __DIR__ . '\..\parts\__head.php' ?>
-<?php include __DIR__ . '\..\parts\__navbar.html' ?>
+<?php include __DIR__ . '\..\parts\__navbar.php' ?>
 <?php include __DIR__ . '\..\parts\__sidebar.html' ?>
 <?php include __DIR__ . '\..\parts\__main_start.html' ?>
 
