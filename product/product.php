@@ -1,6 +1,12 @@
 <?php require __DIR__ . '/../parts/__connect_db.php' ?>
 <?php
 
+// 如果未登入管理帳號就轉向
+if (! $_SESSION['admin']) {
+    header("Location: " . "../login/login.php");
+    exit;
+}
+
 $title = '商品管理';
 
 //商品排序
@@ -40,7 +46,7 @@ $rows = $pdo->query($sql)->fetchAll();
 
 
 <?php include __DIR__ . '/../parts/__head.php' ?>
-<?php include __DIR__ . '/../parts/__navbar.html' ?>
+<?php include __DIR__ . '/../parts/__navbar.php' ?>
 <?php include __DIR__ . '/../parts/__sidebar.html' ?>
 <?php include __DIR__ . '/../parts/__main_start.html' ?>
 

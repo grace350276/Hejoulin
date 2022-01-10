@@ -1,6 +1,12 @@
 <?php require __DIR__ . '/../parts/__connect_db.php' ?>
 <?php
 
+// 如果未登入管理帳號就轉向
+if (! $_SESSION['admin']) {
+    header("Location: " . "../login/login.php");
+    exit;
+}
+
 $title = '商品列表 - 修改頁面';
 
 if (!isset($_GET['pro_id'])) {
@@ -31,7 +37,7 @@ $pro_cons = $pdo->query($pro_con)->fetchAll();
 
 ?>
 <?php include __DIR__ . '/../parts/__head.php' ?>
-<?php include __DIR__ . '/../parts/__navbar.html' ?>
+<?php include __DIR__ . '/../parts/__navbar.php' ?>
 <?php include __DIR__ . '/../parts/__sidebar.html' ?>
 <?php include __DIR__ . '/../parts/__main_start.html' ?>
 <!-- 主要的內容放在 __main_start 與 __main_end 之間 -->
