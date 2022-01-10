@@ -1,4 +1,12 @@
 <?php require __DIR__. '\..\parts\__connect_db.php';
+
+// 如果未登入管理帳號就轉向
+if (! $_SESSION['admin']) {
+    header("Location: " . "../login/login.php");
+    exit;
+}
+
+
 $title = "修改合作餐廳";
 $pageName = "restaurant_edit";
 
@@ -85,7 +93,7 @@ $sp_menu = $pdo->query($sql_sp_menu)->fetchAll();
     }
 </style>
 
-<?php include __DIR__ . '\..\parts\__navbar.html'?>
+<?php include __DIR__ . '\..\parts\__navbar.php'?>
 <?php include __DIR__ . '\..\parts\__sidebar.html'?>
 
 <?php include __DIR__ . '\..\parts\__main_start.html'?>
@@ -303,7 +311,7 @@ $sp_menu = $pdo->query($sql_sp_menu)->fetchAll();
     </div>
 </div>
 
-
+<?php include __DIR__ . '\..\parts\__main_end.html'?>
 <!-- 如果要 modal 的話留下面的結構 -->
 <?php include __DIR__ . '\..\parts\__modal.html'?>
 

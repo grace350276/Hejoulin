@@ -9,6 +9,13 @@ $output = [
     'error' => '',
 ];
 
+// 如果未登入管理帳號就轉向
+if (! $_SESSION['admin']) {
+    $output['error'] = '請登入管理帳號';
+    echo json_encode($output, JSON_UNESCAPED_UNICODE);
+    header("Location: " . "../login/login.php");
+    exit;
+}
 
 $res_id = isset($_POST['res_id']) ? intval($_POST['res_id']) : 0;
 

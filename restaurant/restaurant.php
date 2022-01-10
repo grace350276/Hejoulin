@@ -1,5 +1,11 @@
 <?php require __DIR__. '\..\parts\__connect_db.php';
 
+// 如果未登入管理帳號就轉向
+if (! $_SESSION['admin']) {
+    header("Location: " . "../login/login.php");
+    exit;
+}
+
 require __DIR__ . '\..\vendor\autoload.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -142,7 +148,7 @@ if(isset($_POST['export'])) {
       box-shadow: none !important;
     }
 </style>
-<?php include __DIR__ . '\..\parts\__navbar.html'?>
+<?php include __DIR__ . '\..\parts\__navbar.php'?>
 <?php include __DIR__ . '\..\parts\__sidebar.html'?>
 
 <?php include __DIR__ . '\..\parts\__main_start.html'?>

@@ -3,6 +3,14 @@ require __DIR__. '\..\parts\__connect_db.php';
 
 header('content-type: application/json');
 
+// 如果未登入管理帳號就轉向
+if (! $_SESSION['admin']) {
+    $output['error'] = '請登入管理帳號';
+    echo json_encode($output, JSON_UNESCAPED_UNICODE);
+    header("Location: " . "../login/login.php");
+    exit;
+}
+
 $output = [
     'success' => false,
     'code' => 0,
