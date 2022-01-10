@@ -26,7 +26,7 @@ $rows = $pdo->query($sql)->fetchAll();
 <?php include __DIR__ . '\..\parts\__main_start.html' ?>
     <div class="d-flex justify-content-between mt-5">
         <div class="btnbar">
-            <button type="button" class="btn btn-secondary btn-sm">刪除選擇項目</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="delAll">刪除選擇項目</button>
             <button type="button" class="btn btn-secondary btn-sm"><a href="member_insert.php"
                                                                       style="text-decoration: none; color: white;">新增</a>
             </button>
