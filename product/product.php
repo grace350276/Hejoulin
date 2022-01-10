@@ -2,7 +2,7 @@
 <?php
 
 // 如果未登入管理帳號就轉向
-if (! $_SESSION['admin']) {
+if (!$_SESSION['admin']) {
     header("Location: " . "../login/login.php");
     exit;
 }
@@ -175,7 +175,7 @@ $rows = $pdo->query($sql)->fetchAll();
                         <a href="javascript: delete_it(<?= $r['pro_id'] ?>)"><i class="fas fa-trash"></i></a>
                     </td>
                     <td class="col-1 text-center" id="sid"> <?= $r['pro_id'] ?> </td>
-                    <td class="col-2 text-center"><img class="pro_img" src="/Hejoulin/img/pro_img/<?= $r['pro_img'] ?>" alt=""></td>
+                    <td class="col-2 text-center"><img class="pro_img" src="..\img\pro_img\<?= $r['pro_img'] ?>" alt=""></td>
                     <td class="col-2"><?= htmlentities($r['pro_name']) ?></td>
                     <td class="col-1"><?= $r['pro_stock'] ?></td>
                     <td class="col-1"><?= $r['pro_selling'] ?></td>
@@ -348,6 +348,5 @@ $rows = $pdo->query($sql)->fetchAll();
             location.href = `product.php?limit=48`;
         }
     })
-
 </script>
 <?php include __DIR__ . '/../parts/__foot.html' ?>

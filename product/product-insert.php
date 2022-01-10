@@ -304,7 +304,7 @@ $pro_cons = $pdo->query($pro_con)->fetchAll();
             .then((r) => r.json())
             .then((obj) => {
                 if (obj.success) {
-                    document.querySelector("#myimg").src = "/Hojoulin/img/pro_img/" + obj.filename;
+                    document.querySelector("#myimg").src = "\\..\\img\\pro_img\\" + obj.filename;
                 } else {
                     obj.error;
                 }

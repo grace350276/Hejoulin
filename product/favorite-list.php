@@ -73,7 +73,7 @@ $pro = $pdo->query($product)->fetchAll();
 
             <?php foreach ($rows as $r) : ?>
                 <div class="card d-flex align-items-center m-1 card_count" style="width: 18rem;">
-                    <img src="/Hejoulin/img/pro_img/<?= $r['pro_img'] ?>" class="pt-2 pro_img">
+                    <img src="..\img\pro_img\<?= $r['pro_img'] ?>" class="pt-2 pro_img">
                     <div class="card-body p-0">
                         <h5 class="card-title"><?= $r['pro_name'] ?></h5>
                     </div>

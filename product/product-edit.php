@@ -74,7 +74,7 @@ $pro_cons = $pdo->query($pro_con)->fetchAll();
 
                         <div class="img_div" id="img_div">
                             <?php if ($psake['pro_img']) : ?>
-                                <img id="edit_img" src="/Hejoulin/img/pro_img/<?= $psake['pro_img'] ?>" alt="">
+                                <img id="edit_img" src="..\img\pro_img\<?= $psake['pro_img'] ?>" alt="">
                             <?php endif ?>
                         </div>
                         <div class="img_div d_none">
