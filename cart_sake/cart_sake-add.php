@@ -66,6 +66,7 @@ if (!$_SESSION['admin']) {
                             </select>
                             <div class="form-text"></div>
                         </div>
+                        <a class="btn btn-primary" href="javascript:history.go(-1)">返回</a>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>

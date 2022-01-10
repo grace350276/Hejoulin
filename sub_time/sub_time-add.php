@@ -36,6 +36,7 @@ if (! $_SESSION['admin']) {
                             <input type="number" class="form-control" id="sub_discount" name="sub_discount" min="0.00" max="1.00" step="0.01">
                             <div class="form-text"></div>
                         </div>
+                        <a class="btn btn-primary" href="javascript:history.go(-1)">返回</a>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
