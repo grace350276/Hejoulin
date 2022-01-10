@@ -88,6 +88,9 @@ $sp_menu = $pdo->query($sql_sp_menu)->fetchAll();
         border-right-style:none;
         width: 80%
     }
+    .sp-menu-card .fas.fa-trash {
+        cursor: pointer
+    }
     .sp-menu-card .fas.fa-trash:hover {
         color: #aaa
     }

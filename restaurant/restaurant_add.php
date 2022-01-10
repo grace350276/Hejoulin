@@ -45,6 +45,9 @@ $pageName = "restaurant_add";
         border-right-style:none;
         width: 80%
     }
+    .sp-menu-card .fas.fa-trash {
+        cursor: pointer
+    }
     .sp-menu-card .fas.fa-trash:hover {
         color: #aaa
     }
