@@ -1,4 +1,4 @@
-<?php require __DIR__ . '/parts/__connect_db.php' ?>
+<?php require __DIR__ . '/../parts/__connect_db.php' ?>
 <?php
 $title = '商品列表 - 新增商品';
 
@@ -11,10 +11,10 @@ $pro_con = "SELECT * FROM `product_container` WHERE 1";
 $pro_cons = $pdo->query($pro_con)->fetchAll();
 
 ?>
-<?php include __DIR__ . '/parts/__head.php' ?>
-<?php include __DIR__ . '/parts/__navbar.html' ?>
-<?php include __DIR__ . '/parts/__sidebar.html' ?>
-<?php include __DIR__ . '/parts/__main_start.html' ?>
+<?php include __DIR__ . '/../parts/__head.php' ?>
+<?php include __DIR__ . '/../parts/__navbar.html' ?>
+<?php include __DIR__ . '/../parts/__sidebar.html' ?>
+<?php include __DIR__ . '/../parts/__main_start.html' ?>
 <!-- 主要的內容放在 __main_start 與 __main_end 之間 -->
 <!-- edit -->
 <style>
@@ -262,10 +262,10 @@ $pro_cons = $pdo->query($pro_con)->fetchAll();
 </div>
 
 
-<?php include __DIR__ . '/parts/__main_end.html' ?>
+<?php include __DIR__ . '/../parts/__main_end.html' ?>
 
 
-<?php include __DIR__ . '/parts/__script.html' ?>
+<?php include __DIR__ . '/../parts/__script.html' ?>
 <!-- 如果要 modal 的話留下面的 script -->
 <script>
     const modal = new bootstrap.Modal(document.querySelector('#exampleModal'));
@@ -297,7 +297,7 @@ $pro_cons = $pdo->query($pro_con)->fetchAll();
             .then((r) => r.json())
             .then((obj) => {
                 if (obj.success) {
-                    document.querySelector("#myimg").src = "img/" + obj.filename;
+                    document.querySelector("#myimg").src = "/Hojoulin/img/pro_img/" + obj.filename;
                 } else {
                     obj.error;
                 }
@@ -656,4 +656,4 @@ $pro_cons = $pdo->query($pro_con)->fetchAll();
 
     }
 </script>
-<?php include __DIR__ . '/parts/__foot.html' ?>
+<?php include __DIR__ . '/../parts/__foot.html' ?>

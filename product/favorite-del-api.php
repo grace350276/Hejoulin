@@ -1,4 +1,4 @@
-<?php require __DIR__ . '/parts/__connect_db.php' ;
+<?php require __DIR__ . '/../parts/__connect_db.php' ;
 
 $member_id = $_GET['member_id'];
 $pro_id = $_GET['pro_id'];

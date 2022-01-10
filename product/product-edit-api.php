@@ -1,4 +1,4 @@
-<?php require __DIR__ . '/parts/__connect_db.php';
+<?php require __DIR__ . '/../parts/__connect_db.php';
 error_reporting(0);
 $output = [
     'success' => false,
@@ -44,7 +44,7 @@ $f_gift = $_POST['pro_gift'] ?? '';
 $f_mark = $_POST['pro_mark'] ?? '';
 $f_container_id = $_POST['container_id'] ?? '';
 
-$upload_folder = __DIR__ . '/img';
+$upload_folder = __DIR__ . '/../img/pro_img';
 
 $exts = [
     'image/jpeg' => '.jpg',

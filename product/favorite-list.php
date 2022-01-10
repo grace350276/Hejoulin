@@ -1,4 +1,4 @@
-<?php require __DIR__ . '/parts/__connect_db.php' ?>
+<?php require __DIR__ . '/../parts/__connect_db.php' ?>
 <?php
 
 $title = '收藏列表';
@@ -19,11 +19,11 @@ $product = "SELECT * FROM `product_sake` ORDER BY `pro_name`;";
 $pro = $pdo->query($product)->fetchAll();
 
 ?>
-<?php include __DIR__ . '/parts/__head.php' ?>
-<?php include __DIR__ . '/parts/__navbar.html' ?>
-<?php include __DIR__ . '/parts/__sidebar.html' ?>
+<?php include __DIR__ . '/../parts/__head.php' ?>
+<?php include __DIR__ . '/../parts/__navbar.html' ?>
+<?php include __DIR__ . '/../parts/__sidebar.html' ?>
 
-<?php include __DIR__ . '/parts/__main_start.html' ?>
+<?php include __DIR__ . '/../parts/__main_start.html' ?>
 <!-- 主要的內容放在 __main_start 與 __main_end 之間 -->
 
 
@@ -67,7 +67,7 @@ $pro = $pdo->query($product)->fetchAll();
 
             <?php foreach ($rows as $r) : ?>
                 <div class="card d-flex align-items-center m-1 card_count" style="width: 18rem;">
-                    <img src="/sake-bootstrap-product/img/<?= $r['pro_img'] ?>" class="pt-2 pro_img">
+                    <img src="/Hejoulin/img/pro_img/<?= $r['pro_img'] ?>" class="pt-2 pro_img">
                     <div class="card-body p-0">
                         <h5 class="card-title"><?= $r['pro_name'] ?></h5>
                     </div>
@@ -156,8 +156,8 @@ $pro = $pdo->query($product)->fetchAll();
 </div>
 
 
-<?php include __DIR__ . '/parts/__main_end.html' ?>
-<?php include __DIR__ . '/parts/__script.html' ?>
+<?php include __DIR__ . '/../parts/__main_end.html' ?>
+<?php include __DIR__ . '/../parts/__script.html' ?>
 <!-- 如果要 modal 的話留下面的 script -->
 <script>
     const modal = new bootstrap.Modal(document.querySelector('#exampleModal'));
@@ -253,4 +253,4 @@ $pro = $pdo->query($product)->fetchAll();
         }
     }
 </script>
-<?php include __DIR__ . '/parts/__foot.html' ?>
+<?php include __DIR__ . '/../parts/__foot.html' ?>
